@@ -1,0 +1,10 @@
+
+
+.link {
+    color: red;
+
+    &.active {
+        color: white;
+        background-color: red;
+    }
+}
