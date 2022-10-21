@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import MovieDetails from "components/pages/MovieDetails/MovieDetails";
 import Cast from "components/pages/Cast/Cast";
 import Navbar from "components/Navbar/Navbar";
+import NotFound from "components/pages/NotFound/NotFound";
 
 
 export const App = () => {
@@ -12,10 +13,11 @@ export const App = () => {
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
+        flexDirection: 'column'
       }}
     >
       <Navbar />
@@ -26,6 +28,7 @@ export const App = () => {
           <Route path="/movies/:movieId/cast" element={<Cast />}/>
       
       </Route>
+      <Route path="*" element={<NotFound />}/>
      </Routes>
     </div>
   );

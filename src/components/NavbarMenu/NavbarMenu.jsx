@@ -8,10 +8,10 @@ const getClassName = ({isActive}) => {
 
 export default function NavbarMenu() {
   return (
-    <ul>
+    <ul className={scss.navbarMenuList}>
         {items.map(({id, to, text}) => {
             return (
-                <li key={id}>
+                <li  key={id}>
                     <NavLink className={getClassName} to={to} end>{text}</NavLink>
                 </li>
             )})
