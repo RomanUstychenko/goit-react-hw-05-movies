@@ -3,10 +3,10 @@ import  { useState, useEffect  } from 'react'
 import { getImage } from 'components/API/fetch';
 import { Gallery } from 'components/Gallery/Gallery';
 import Loader from 'components/Loader/loader';
+import { Button } from 'components/Button/Button';
+
 
 export default function HomePage() {
-
-  
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,10 +14,10 @@ export default function HomePage() {
   const [query, setQuery] = useState("");
 
  
-  useEffect(() => {
-    console.log("didMount")
-    fetchImage();
-  }, []);
+  // useEffect(() => {
+  //   console.log("didMount")
+  //   fetchImage();
+  // }, []);
 
   useEffect(() => {
     console.log("didUpdate")
@@ -54,12 +54,13 @@ const LoadMore = () => {
   setPage((prev) => prev +1)
 }
   const isImage = Boolean(items.length);
+  console.log(isImage)
 return (
   <div>
          {loading && <Loader />}
          {error && <p>Помилка</p>}
          {isImage && <Gallery items={items}/>}
-{/* //           {isImage && <Button onClick={LoadMore} />} */}
+        {isImage && <Button onClick={LoadMore} />}
        </div>
 )
 }

@@ -1,7 +1,6 @@
 import scss from "./Gallery.module.scss"
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-// import GalleryItem from "components/ImageGalleryItem/ImageGalleryItem"
    
 
 export const Gallery = ({items}) => {
@@ -11,9 +10,7 @@ return (
         <li
         className={scss.ImageGalleryItem}
         key={id} >
-        <Link to={`/${id}`}>  {title}  </Link>
-          
-            
+        <Link to={`/movies/${id}`}>  {title}  </Link>
         </li>))}
         </ul>
     )};
@@ -25,16 +22,4 @@ return (
       title: PropTypes.string.isRequired,
     })
   ),
-//   onClick: PropTypes.func.isRequired,
 };
-
-
-// const ImageGalleryItem = ({ webformatURL, tags, onClick}) => {
-
-//     return <img
-//     className={scss.ImageGalleryItemImage}
-//     src={webformatURL}
-//      alt={tags}
-//      onClick={onClick}
-//     />
-//     }
