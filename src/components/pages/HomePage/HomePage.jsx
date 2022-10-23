@@ -1,8 +1,8 @@
 import  { useState, useEffect  } from 'react'
 
 import { getImage } from 'components/API/fetch';
-
-import Loader from 'components/API/Loader/loader';
+import { Gallery } from 'components/Gallery/Gallery';
+import Loader from 'components/Loader/loader';
 
 export default function HomePage() {
 
@@ -16,7 +16,7 @@ export default function HomePage() {
  
   useEffect(() => {
     console.log("didMount")
-    fetchImage();s
+    fetchImage();
   }, []);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function HomePage() {
 
 try {
   const data = await getImage(page)
-  console.log(data)
+  console.log(data.results)
   setItems((items) => {
       return [...items, ...data.results]
           })
@@ -49,7 +49,7 @@ finally {
   setLoading(false)
 }
 };
-// fetchImage()
+
 const LoadMore = () => {
   setPage((prev) => prev +1)
 }
@@ -58,8 +58,8 @@ return (
   <div>
          {loading && <Loader />}
          {error && <p>Помилка</p>}
-{/* //           {isImage && <ImageGallery items={items}/>}
-//           {isImage && <Button onClick={LoadMore} />} */}
+         {isImage && <Gallery items={items}/>}
+{/* //           {isImage && <Button onClick={LoadMore} />} */}
        </div>
 )
 }
