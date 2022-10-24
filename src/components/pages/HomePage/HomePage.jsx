@@ -1,6 +1,6 @@
 import  { useState, useEffect  } from 'react'
 
-import { getImage } from 'components/API/fetch';
+import { getMovie } from 'components/API/fetch';
 import { Gallery } from 'components/Gallery/Gallery';
 import Loader from 'components/Loader/loader';
 import { Button } from 'components/Button/Button';
@@ -14,28 +14,17 @@ export default function HomePage() {
   const [query, setQuery] = useState("");
 
  
-  // useEffect(() => {
-  //   console.log("didMount")
-  //   fetchImage();
-  // }, []);
+
 
   useEffect(() => {
-    console.log("didUpdate")
-    fetchImage();
+    fetchMovie();
   }, [page]);
-    //     componentDidUpdate(__, prevState) {
-    //         const {page} = this.state;
-    //         if (prevState.page !== page) {
-    //             this.fetchImage();
-    //         }
-    //     } 
 
- const fetchImage = async () => {
+ const fetchMovie = async () => {
   setLoading(true)
 
 try {
-  const data = await getImage(page)
-  console.log(data.results)
+  const data = await getMovie(page)
   setItems((items) => {
       return [...items, ...data.results]
           })

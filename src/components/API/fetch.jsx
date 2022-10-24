@@ -3,18 +3,18 @@ import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const POPULAR_URL = `${BASE_URL}/trending/movie/day`;
 const SEARCH_URL = `${BASE_URL}/search/movie`;
 const MOVIE_ID_URL = `${BASE_URL}/movie/`;
 
 const instance = axios.create({
-    baseURL: "https://api.themoviedb.org/3/trending/all/day",
+//    const URl = "";
+    baseURL: `${BASE_URL}`,
     params: {
         api_key: "04cb754e3fc264242ddc48b1c691d765"
     }
 })
-export const getImage = async (page=1) => {
-    const {data} = await instance.get("", {
+export const getMovie = async (page=1) => {
+    const {data} = await instance.get("/trending/all/day", {
         params: {
             page,
         }
@@ -23,7 +23,7 @@ export const getImage = async (page=1) => {
 };
 
 export const getMovieById = async (id) => {
-    const {data} = await instance.get(`/${id}`);
+    const {data} = await instance.get(`/movie/${id}`);
     return data
 };
 
