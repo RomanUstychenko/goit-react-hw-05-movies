@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <nav className={scss.navbarList}>
         <div>
-            <Link to="/">Logo</Link>
+            {/* <Link to="/">Logo</Link> */}
             <NavbarMenu />
         </div>
     

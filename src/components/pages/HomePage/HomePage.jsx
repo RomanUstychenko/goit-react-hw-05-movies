@@ -17,33 +17,33 @@ export default function HomePage() {
 
 
   useEffect(() => {
+    const fetchMovie = async () => {
+      setLoading(true)
+    
+    try {
+      const data = await getMovie(page)
+      setItems((items) => {
+          return [...items, ...data.results]
+              })
+    
+    
+    } catch (error) {
+      setError(error)
+    
+    }
+    finally {
+      setLoading(false)
+    }
+    };
     fetchMovie();
   }, [page]);
 
- const fetchMovie = async () => {
-  setLoading(true)
 
-try {
-  const data = await getMovie(page)
-  setItems((items) => {
-      return [...items, ...data.results]
-          })
-
-
-} catch (error) {
-  setError(error)
-
-}
-finally {
-  setLoading(false)
-}
-};
 
 const LoadMore = () => {
   setPage((prev) => prev +1)
 }
   const isImage = Boolean(items.length);
-  console.log(isImage)
 return (
   <div>
          {loading && <Loader />}
