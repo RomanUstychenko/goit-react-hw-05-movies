@@ -11,7 +11,7 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
 
  
 

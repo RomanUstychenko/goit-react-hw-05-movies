@@ -3,11 +3,10 @@ import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const SEARCH_URL = `${BASE_URL}/search/movie`;
-const MOVIE_ID_URL = `${BASE_URL}/movie/`;
+// const SEARCH_URL = `${BASE_URL}/search/movie`;
+// const MOVIE_ID_URL = `${BASE_URL}/movie/`;
 
 const instance = axios.create({
-//    const URl = "";
     baseURL: `${BASE_URL}`,
     params: {
         api_key: "04cb754e3fc264242ddc48b1c691d765"

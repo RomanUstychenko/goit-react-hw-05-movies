@@ -1,5 +1,5 @@
 import NavbarMenu from "components/NavbarMenu/NavbarMenu"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import scss from "./Navbar.module.scss"
 
 export default function Navbar() {
