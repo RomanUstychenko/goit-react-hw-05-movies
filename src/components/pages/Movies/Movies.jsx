@@ -1,5 +1,5 @@
 import  { useState, useEffect  } from 'react'
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/loader';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { searchMovie } from 'components/API/fetch';
