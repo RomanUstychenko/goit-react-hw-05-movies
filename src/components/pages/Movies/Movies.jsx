@@ -49,7 +49,7 @@ const searchQuery = searchParams.get("searchQuery")
 
  const onSearch = (inputSearch) => {
 
-  if (inputSearch !== search) {
+  if (inputSearch !== searchQuery) {
     // if (!inputSearch) {
      setItems([]);
      setSearchParams({searchQuery: inputSearch});

@@ -51,7 +51,7 @@ const goBack = () => navigate(-1);
       <img 
       src={state.poster_path === null ? 'https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-photo-not-available-icon-isolated-on-white-background-vector-illustration.jpg?ver=6' : `https://image.tmdb.org/t/p/w500${state.poster_path}`} alt="" />
       <div>
-      <h1>{state.title} {state.release_date}</h1>
+      <h1>{state.title} ({state.release_date})</h1>
       <p>User Score {state.vote_average} </p>
       <h2>Overview</h2>
       <p>{state.overview}</p>
