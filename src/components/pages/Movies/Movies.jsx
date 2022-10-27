@@ -12,7 +12,7 @@ export default function Movies() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   // const [modalOpen, setModalOpen] = useState(false);
   // const [modalImage, setModalImage] = useState({
