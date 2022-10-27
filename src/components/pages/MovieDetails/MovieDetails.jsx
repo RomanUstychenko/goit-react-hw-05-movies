@@ -1,7 +1,7 @@
 
 import  { useState, useEffect } from 'react'
 // import { , useSearchParams } from 'react-router-dom';
-import { useParams, useNavigate, Outlet } from 'react-router-dom';
+import { useParams, useNavigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { getMovieById } from 'components/API/fetch';
 import Loader from 'components/Loader/loader';
 import scss from './MovieDetails.module.scss'
@@ -14,6 +14,9 @@ export default function MovieDetails() {
 
 const { movieId } = useParams();
 const navigate = useNavigate();
+const location = useLocation();
+console.log(location)
+
 
 
 
@@ -38,7 +41,12 @@ useEffect(() => {
   }
   fetchMovie()
 }, [movieId]);
-const goBack = () => navigate(-1);
+const from = location.state?.from ?? `/movies`;
+const goBack = () => navigate(from);
+// const goBackLink = location.state?.from ?? '/movies';
+const isCastPage = location.pathname.includes("cast")
+const castLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
+const reviewsLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/reviews`;
   return (
    <>
    {loading && <Loader />}
@@ -63,6 +71,8 @@ const goBack = () => navigate(-1);
       </div>
       <div>
         <p>Additional information</p>
+        <Link to={castLink} state={{ from: from }}>Cast</Link>
+        <Link to={reviewsLink} state={{ from: from }}>Reviews</Link>
         <Outlet />
       </div>
       </>

@@ -40,6 +40,11 @@ export const getCastsById = async (id) => {
     return data
 };
 
+export const getReviewsById = async (id) => {
+    const {data} = await instance.get(`/movie/${id}/reviews`);
+    return data
+};
+
 
 // const KEY = '04cb754e3fc264242ddc48b1c691d765';
 // const BASE_URL = 'https://api.themoviedb.org/3/movie/550';
