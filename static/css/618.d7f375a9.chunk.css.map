@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/618.d7f375a9.chunk.css","mappings":"AAAA,kCAEI,iBADA,aAEA","sources":["components/pages/MovieDetails/MovieDetails.module.scss"],"sourcesContent":[".movieDetails {\n    display: flex;\n    border: 2px solid ;\n    padding: 20px 0;\n}"],"names":[],"sourceRoot":""}
