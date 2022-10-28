@@ -58,7 +58,7 @@ const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/r
       </span>
       <div className={scss.movieDetailsDescription}>
       <h1 className={scss.titleMovie}  >{state.title}  
-      ({state.release_date.split('-')})
+      ({state.release_date.substr(0, 4)})
       {/* {state.release_date}  */}
       </h1>
       <p className={scss.userScore}><b>User Score:</b> {state.vote_average} </p>
