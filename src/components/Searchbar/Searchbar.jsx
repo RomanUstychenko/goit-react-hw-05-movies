@@ -41,10 +41,6 @@ setInputSearch(value)
 <form 
 className={scss.SearchForm}
 onSubmit={handleSubmit}>
-  <SubmitBnt 
-  text="Search"
-  onClick={handleSubmit} 
-  />
   <input
     id={searchID}
     className={scss.SearchFormInput}
@@ -53,6 +49,10 @@ onSubmit={handleSubmit}>
     {...searchField}
     autocomplete="off"
     autofocus
+  />
+   <SubmitBnt 
+  text="Search"
+  onClick={handleSubmit} 
   />
 </form>
 </header>

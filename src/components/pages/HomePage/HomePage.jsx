@@ -1,5 +1,5 @@
 import  { useState, useEffect  } from 'react'
-
+import scss from "./HomePage.module.scss"
 import { getMovie } from 'components/API/fetch';
 import { Gallery } from 'components/Gallery/Gallery';
 import Loader from 'components/Loader/loader';
@@ -36,11 +36,11 @@ const LoadMore = () => {
 }
   const isImage = Boolean(items.length);
 return (
-  <div>
+  <header className={scss.headerHome}>
          {loading && <Loader />}
          {error && <p>Помилка</p>}
          {isImage && <Gallery items={items}/>}
         {isImage && <Button onClick={LoadMore} />}
-       </div>
+       </header>
 )
 }

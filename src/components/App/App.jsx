@@ -21,15 +21,16 @@ export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+        // height: '100vh',
         // display: 'flex',
         // justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 40,
+        // fontSize: 40,
         color: '#010101',
         flexDirection: 'column',
-        backgroundColor: '#e0dada',
-        paddingTop: '15px'
+        // backgroundColor: '#e0dada',
+        // paddingTop: '15px'
+        padding: '15px 15px 0 15px'
       }}
     >
       <Suspense fallback={<Loader/>}>

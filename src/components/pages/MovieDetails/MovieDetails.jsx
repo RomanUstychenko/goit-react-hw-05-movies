@@ -42,31 +42,38 @@ const isCastPage = location.pathname.includes("cast")
 const castLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
 const isReviewsPage = location.pathname.includes("reviews")
 const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/reviews`;
+// const dd = Math.trunc(22-09-08)
   return (
    <>
    {loading && <Loader />}
       {error && <p>Помилка</p>}
-   <button onClick={goBack}>Go back</button>
+   <button onClick={goBack} className={scss.btnGoBack}>Go back</button>
     <div className={scss.movieDetails}>
       {state && 
     <>
+    <span >
       <img 
+      className={scss.imgMovie}
       src={state.poster_path === null ? 'https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-photo-not-available-icon-isolated-on-white-background-vector-illustration.jpg?ver=6' : `https://image.tmdb.org/t/p/w500${state.poster_path}`} alt="" />
-      <div>
-      <h1>{state.title} ({state.release_date})</h1>
-      <p>User Score {state.vote_average} </p>
-      <h2>Overview</h2>
-      <p>{state.overview}</p>
-      <h2>Genres</h2>
-      <p>{state.genres.map(({ name }) => `${name}`).join(', ')}</p>
+      </span>
+      <div className={scss.movieDetailsDescription}>
+      <h1 className={scss.titleMovie}  >{state.title}  
+      ({state.release_date.split('-')})
+      {/* {state.release_date}  */}
+      </h1>
+      <p className={scss.userScore}><b>User Score:</b> {state.vote_average} </p>
+      <h2 className={scss.overview}>Overview</h2>
+      <p className={scss.overviewMovie}>{state.overview}</p>
+      <h2 className={scss.genres}>Genres</h2>
+      <p className={scss.genresMovie}>{state.genres.map(({ name }) => `${name}`).join(', ')}</p>
       </div>
       
       </>}
       </div>
-      <div>
+      <div className={scss.additionalInfo}>
         <p>Additional information</p>
-        <Link to={castLink} state={{ from: from }}>Cast</Link>
-        <Link to={reviewsLink} state={{ from: from }}>Reviews</Link>
+        <Link className={scss.link} to={castLink} state={{ from: from }}>Cast</Link>
+        <Link className={scss.link} to={reviewsLink} state={{ from: from }}>Reviews</Link>
         <Outlet />
       </div>
       </>

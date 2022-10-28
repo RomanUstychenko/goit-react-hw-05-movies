@@ -1,0 +1,8 @@
+.ImageGallery {
+   font-size: 35px;
+}
+.ImageGalleryItem {
+    .navbarMenuListItem:not(:last-child) {
+        margin-right: 20px;
+    }
+}

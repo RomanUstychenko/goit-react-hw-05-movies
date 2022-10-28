@@ -1,5 +1,65 @@
 .movieDetails {
     display: flex;
     border: 2px solid ;
-    padding: 20px 0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+}
+.btnGoBack {
+    margin-top: 5px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    background-color: #3f51b5;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    min-width: 180px;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+.imgMovie {
+    width: 400px;
+}
+.titleMovie {
+    font-size: 35px;
+    margin-bottom: 20px;
+
+}
+.overviewMovie,
+.genresMovie {
+    font-size: 20px;
+}
+.movieDetailsDescription {
+    margin-left: 20px;
+}
+.additionalInfo {
+    margin-top: 5px;
+}
+.userScore,
+.overview,
+.overviewMovie,
+.genres {
+    margin-bottom: 20px;
+}
+.link {
+    color: rgb(12, 5, 27);
+    font-size: 20px;
+    font-weight: 900;
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+    &:hover,
+    :focus {
+        color: rgb(18, 62, 128);
+    }
 }
