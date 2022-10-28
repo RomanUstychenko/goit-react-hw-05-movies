@@ -11,7 +11,7 @@ export default function NavbarMenu() {
     <ul className={scss.navbarMenuList}>
         {items.map(({id, to, text}) => {
             return (
-                <li  key={id}>
+                <li className={scss.navbarMenuListItem} key={id}>
                     <NavLink className={getClassName} to={to} end>{text}</NavLink>
                 </li>
             )})

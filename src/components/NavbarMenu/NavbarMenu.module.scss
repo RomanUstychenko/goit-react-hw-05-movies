@@ -1,14 +1,18 @@
 .navbarMenuList {
     display: flex;
-    border: 2px solid ;
-    // left: 10px;
 }
-
 .link {
-    color: red;
-
+    font-size: 40px;
+    color: rgb(158, 77, 77);
     &.active {
         color: white;
-        background-color: red;
+        background-color: rgb(158, 77, 77);
     }
+    &:hover, 
+    :focus {
+        color: rgb(146, 168, 117);
+    }
+}
+.navbarMenuListItem:not(:last-child) {
+    margin-right: 20px;
 }
