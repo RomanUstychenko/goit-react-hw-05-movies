@@ -12,12 +12,8 @@ export default function Movies() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  // const [modalOpen, setModalOpen] = useState(false);
-  // const [modalImage, setModalImage] = useState({
-  //   largeImageURL: "",
-  // });
+
 
 const [searchParams, setSearchParams] = useSearchParams();
 console.log(searchParams.get(""))
@@ -42,15 +38,12 @@ const searchQuery = searchParams.get("searchQuery")
                   setLoading(false)
                 }
           };
-          // if (searchQuery) {
           fetchMovie ()
-        // }
           }, [searchQuery, page]);
 
  const onSearch = (inputSearch) => {
 
   if (inputSearch !== searchQuery) {
-    // if (!inputSearch) {
      setItems([]);
      setSearchParams({searchQuery: inputSearch});
     setPage(1);
@@ -63,18 +56,6 @@ const searchQuery = searchParams.get("searchQuery")
   const LoadMore = () => {
     setPage((prev) => prev + 1)
 };
-
-// const closeModal = () => {
-//   setModalOpen(false)
-//   setModalImage({
-//     largeImageURL: "",
-//   })
-// };
-
-// const openModal = (modalImage) => {
-//   setModalOpen(true)
-//   setModalImage(modalImage)
-// };
 
 const isImage = Boolean(items.length);
   return (

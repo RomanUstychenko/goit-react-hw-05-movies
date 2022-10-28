@@ -15,10 +15,6 @@ export default function MovieDetails() {
 const { movieId } = useParams();
 const navigate = useNavigate();
 const location = useLocation();
-console.log(location)
-
-
-
 
 useEffect(() => {
   
@@ -28,7 +24,6 @@ useEffect(() => {
       setLoading(true)
       setError(null)
       const result = await getMovieById(movieId)
-      console.log(result)
       setState(result)
       
     } catch (error) {
@@ -41,19 +36,18 @@ useEffect(() => {
   }
   fetchMovie()
 }, [movieId]);
-const from = location.state?.from ?? `/movies`;
+const from = location.state?.from || `/movies`;
 const goBack = () => navigate(from);
-// const goBackLink = location.state?.from ?? '/movies';
 const isCastPage = location.pathname.includes("cast")
 const castLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
-const reviewsLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/reviews`;
+const isReviewsPage = location.pathname.includes("reviews")
+const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/reviews`;
   return (
    <>
    {loading && <Loader />}
       {error && <p>Помилка</p>}
    <button onClick={goBack}>Go back</button>
     <div className={scss.movieDetails}>
-      
       {state && 
     <>
       <img 

@@ -11,10 +11,6 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-  // const [query, setQuery] = useState("");
-
- 
-
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -25,11 +21,8 @@ export default function HomePage() {
       setItems((items) => {
           return [...items, ...data.results]
               })
-    
-    
     } catch (error) {
       setError(error)
-    
     }
     finally {
       setLoading(false)
@@ -37,8 +30,6 @@ export default function HomePage() {
     };
     fetchMovie();
   }, [page]);
-
-
 
 const LoadMore = () => {
   setPage((prev) => prev +1)

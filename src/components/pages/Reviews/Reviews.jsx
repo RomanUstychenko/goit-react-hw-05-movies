@@ -19,39 +19,29 @@ const {movieId} = useParams()
         setError(null)
         const result = await getReviewsById(movieId)
         setReviews(result.results)
-        console.log(result.results)
-        
-        
       } catch (error) {
         setError(error)
       }
       finally {
-        setLoading(false)
-        
-        
+        setLoading(false) 
       }
     }
     fetchCasts()
   },[movieId])
   
-  const isReviews = Boolean(reviews.length); 
-  console.log(isReviews)
+  const isReviews = Boolean(reviews.length);
   return (
     <>
     {loading && <Loader />}
     {error && <p>Помилка</p>}
     {!isReviews && <p>We don't have any actors information for this moment</p>}
-    {/* <ul>
-    {cast?.map(({ id, profile_path, character, name }) => <li key={id}>
-               <img src={profile_path === null ? 'https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-photo-not-available-icon-isolated-on-white-background-vector-illustration.jpg?ver=6' : `https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} loading="lazy" />
-               <div>
-                   <p><b>{name}</b></p>
-                   <p>Character: {character}</p>
-               </div>
+    <ul>
+    {reviews?.map(({ id, author, content }) => <li key={id}>    
+                   <p><b>Author: {author}</b></p>
+                   <p> {content}</p>
            </li>
            )}
- </ul> */}
-
+ </ul>
     </>
   )
 }

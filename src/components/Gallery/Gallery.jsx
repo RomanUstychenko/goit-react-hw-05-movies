@@ -1,6 +1,6 @@
 import scss from "./Gallery.module.scss"
 import PropTypes from 'prop-types';
-import { NavLink , useLocation } from "react-router-dom";
+import { Link , useLocation } from "react-router-dom";
    
 
 export const Gallery = ({items}) => {
@@ -13,7 +13,7 @@ return (
         <li
         className={scss.ImageGalleryItem}
         key={id}>
-        <NavLink  to={`/movies/${id}`} state={{from: location}}>{title}</NavLink >
+        <Link  to={`/movies/${id}`} state={{from: location}}>{title}</Link>
         </li>))}
         </ul>
     )};

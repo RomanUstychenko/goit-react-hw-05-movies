@@ -19,7 +19,6 @@ const {movieId} = useParams()
         setError(null)
         const result = await getCastsById(movieId)
         setCast(result.cast)
-        console.log(result)
         
       } catch (error) {
         setError(error)
@@ -31,15 +30,13 @@ const {movieId} = useParams()
     }
     fetchCasts()
   },[movieId])
-  const isCast = Boolean(cast.length); 
-console.log(isCast)
+  const isCast = Boolean(cast.length);
   return (
     <>
     {loading && <Loader />}
     {error && <p>Помилка</p>}
-    
-    <ul>
     {!isCast && <p>We don't have any actors information for this moment</p>}
+    <ul>
     {cast?.map(({ id, profile_path, character, name }) => <li key={id}>
                <img src={profile_path === null ? 'https://us.123rf.com/450wm/urfandadashov/urfandadashov1805/urfandadashov180500070/100957966-photo-not-available-icon-isolated-on-white-background-vector-illustration.jpg?ver=6' : `https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} loading="lazy" />
                <div>
@@ -49,7 +46,6 @@ console.log(isCast)
            </li>
            )}
  </ul>
-
     </>
   )
 }
