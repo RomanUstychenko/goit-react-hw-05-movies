@@ -1,12 +1,21 @@
 import {Routes, Route } from "react-router-dom";
-import Movies from 'components/pages/Movies/Movies';
-import HomePage from "../pages/HomePage/HomePage";
-import MovieDetails from "components/pages/MovieDetails/MovieDetails";
-import Cast from "components/pages/Cast/Cast";
-import Reviews from "components/pages/Reviews/Reviews";
-import Navbar from "components/Navbar/Navbar";
-import NotFound from "components/pages/NotFound/NotFound";
+import { lazy, Suspense } from "react";
+import Loader from 'components/Loader/loader';
+// import Movies from 'components/pages/Movies/Movies';
+// import HomePage from "../pages/HomePage/HomePage";
+// import MovieDetails from "components/pages/MovieDetails/MovieDetails";
+// import Cast from "components/pages/Cast/Cast";
+// import Reviews from "components/pages/Reviews/Reviews";
+// import Navbar from "components/Navbar/Navbar";
+// import NotFound from "components/pages/NotFound/NotFound";
 
+const Movies = lazy(() => import("components/pages/Movies/Movies"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const MovieDetails = lazy(() => import("components/pages/MovieDetails/MovieDetails"));
+const Cast = lazy(() => import("components/pages/Cast/Cast"));
+const Reviews = lazy(() => import("components/pages/Reviews/Reviews"));
+const Navbar = lazy(() => import("components/Navbar/Navbar"));
+const NotFound = lazy(() => import("components/pages/NotFound/NotFound"));
 
 export const App = () => {
   return (
@@ -21,6 +30,7 @@ export const App = () => {
         flexDirection: 'column'
       }}
     >
+      <Suspense fallback={<Loader/>}>
       <Navbar />
      <Routes>
       <Route path="/" element={<HomePage />}/>
@@ -31,6 +41,7 @@ export const App = () => {
       </Route>
       <Route path="*" element={<NotFound />}/>
      </Routes>
+     </Suspense>
     </div>
   );
 };

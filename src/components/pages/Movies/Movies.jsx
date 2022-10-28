@@ -16,7 +16,6 @@ export default function Movies() {
 
 
 const [searchParams, setSearchParams] = useSearchParams();
-console.log(searchParams.get(""))
 const searchQuery = searchParams.get("searchQuery")
 
   useEffect(() => {
