@@ -1,6 +1,5 @@
 
-import  { useState, useEffect } from 'react'
-// import { , useSearchParams } from 'react-router-dom';
+import  { useState, useEffect, Suspense } from 'react'
 import { useParams, useNavigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { getMovieById } from 'components/API/fetch';
 import Loader from 'components/Loader/loader';
@@ -42,7 +41,6 @@ const isCastPage = location.pathname.includes("cast")
 const castLink = isCastPage ? `/movies/${movieId}` : `/movies/${movieId}/cast`;
 const isReviewsPage = location.pathname.includes("reviews")
 const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/reviews`;
-// const dd = Math.trunc(22-09-08)
   return (
    <>
    {loading && <Loader />}
@@ -59,7 +57,6 @@ const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/r
       <div className={scss.movieDetailsDescription}>
       <h1 className={scss.titleMovie}  >{state.title}  
       ({state.release_date.substr(0, 4)})
-      {/* {state.release_date}  */}
       </h1>
       <p className={scss.userScore}><b>User Score:</b> {state.vote_average} </p>
       <h2 className={scss.overview}>Overview</h2>
@@ -74,8 +71,10 @@ const reviewsLink = isReviewsPage ? `/movies/${movieId}` : `/movies/${movieId}/r
         <p>Additional information</p>
         <Link className={scss.link} to={castLink} state={{ from: from }}>Cast</Link>
         <Link className={scss.link} to={reviewsLink} state={{ from: from }}>Reviews</Link>
-        <Outlet />
       </div>
+      <Suspense fallback={<Loader/>}>
+      <Outlet />
+      </Suspense>
       </>
   )
 }

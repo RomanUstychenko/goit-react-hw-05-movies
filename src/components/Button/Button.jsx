@@ -29,5 +29,4 @@ export function SubmitBnt ({text, onClick}) {
 
 SubmitBnt.propTypes = {
   onClick: PropTypes.func.isRequired,
-  // text: PropTypes.string.isRequired,
 };

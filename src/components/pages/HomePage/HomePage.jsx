@@ -35,12 +35,15 @@ const LoadMore = () => {
   setPage((prev) => prev +1)
 }
   const isImage = Boolean(items.length);
+  
 return (
   <header className={scss.headerHome}>
          {loading && <Loader />}
          {error && <p>Помилка</p>}
          {isImage && <Gallery items={items}/>}
-        {isImage && <Button onClick={LoadMore} />}
+         {isImage && <Button onClick={LoadMore} />}
+         
+        
        </header>
 )
 }

@@ -6,7 +6,7 @@ import { searchMovie } from 'components/API/fetch';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { Gallery } from 'components/Gallery/Gallery';
 import { Button } from 'components/Button/Button';
-// import scss from "./Movies.module.scss"
+
 
 export default function Movies() {
   const [items, setItems] = useState([]);
@@ -55,8 +55,9 @@ const searchQuery = searchParams.get("searchQuery")
   const LoadMore = () => {
     setPage((prev) => prev + 1)
 };
+const isImages = Boolean(items.length);
+const isImage = Boolean(items.length > 1);
 
-const isImage = Boolean(items.length);
   return (
     <>
     <Searchbar 
@@ -64,8 +65,8 @@ const isImage = Boolean(items.length);
     <div>
     {loading && <Loader />}
     {error && <p>Помилка</p>}
-    {isImage && <Gallery items={items}/>}
-   {isImage && <Button onClick={LoadMore} />}
+    {isImages && <Gallery items={items}/>}
+   {isImage && isImages && <Button onClick={LoadMore} />}
    
   </div>
   
